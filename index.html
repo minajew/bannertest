@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="black-friday-bar" class="black-friday-bar hidden__banner">
+        <p>Завантажуй додаток BitFaktura для iPhone і виставляй рахунки-фактури з телефону – це зручно!</p>
+
+        <a href="https://apps.apple.com/us/app/bitfaktura-pro/" class="black-friday-btn">Завантажити</a>
+    </div>
+
+    <div class="placeholder"></div>
+
+    <script>
+        function isIOSDevice() {
+            return !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+        }
+        if (isIOSDevice()) {
+            // console.log("I am an IOS device!");
+            let bannerFunction = () => {
+                let bar = document.getElementById('black-friday-bar');
+                let distance = window.scrollY;
+
+                if (distance >= 250) {
+                    bar.classList.remove('hidden__banner')
+                } else {
+                    bar.classList.add('hidden__banner');
+                }
+            }
+            document.addEventListener('scroll', bannerFunction);
+        } else {
+            console.log('chujnia')
+        }
+    </script>
+</body>
+
+</html>
